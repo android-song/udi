@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@android:color/background_light"
+    android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:hint="输入您的电话号码/QQ/微信/邮箱："
+            android:textSize="15sp"
+            android:gravity="center"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/user_phone"
+            android:hint="请输入"
+            android:textSize="15sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+</LinearLayout>

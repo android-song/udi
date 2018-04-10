@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:openXu="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:clipToPadding="true"
+        android:background="#f50606"
+        android:fitsSystemWindows="true"
+        android:elevation="3dp"
+        android:layout_height="?attr/actionBarSize">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:text="接单"
+            android:layout_marginLeft="-24dp"
+            android:textColor="#fdfafa"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:id="@+id/textView"
+            />
+        <Button
+            android:id="@+id/btu_chat"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="-50dp"
+            android:background="@drawable/icon_message_normal"
+            android:gravity="center_vertical|left" />
+    </LinearLayout>
+
+    <View
+        android:background="#c6bdbd"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"></View>
+  <TextView
+      android:layout_marginTop="10dp"
+      android:layout_marginLeft="15dp"
+      android:layout_marginRight="15dp"
+      android:padding="10dp"
+      android:background="@drawable/input_bg"
+      android:layout_width="match_parent"
+      android:gravity="center"
+      android:maxLines="3"
+      android:text="思维都是   2016/08/56\n男  18392059576"
+      android:layout_height="wrap_content" />
+    <TextView
+     android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:padding="10dp"
+        android:gravity="center"
+        android:textColor="#fc0a0a"
+        android:layout_width="match_parent"
+        android:text="赏金   5亿元"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:gravity="center"
+        android:background="@drawable/input_bg"
+        android:layout_width="match_parent"
+        android:text="西邮桥头"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:gravity="center_vertical"
+        android:layout_width="wrap_content"
+        android:drawablePadding="5dp"
+        android:drawableLeft="@drawable/ic_expand_more_black_24dp"
+        android:text="送到"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:padding="10dp"
+        android:gravity="center"
+        android:background="@drawable/input_bg"
+        android:layout_width="match_parent"
+        android:text="西邮桥下"
+        android:layout_height="wrap_content" />
+    <take.ItemViewDemo
+        android:id="@+id/lineBreakLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dip"
+        android:focusable="false"
+        openXu:leftAndRightSpace="20dip"
+        openXu:rowSpace="10dip"/>
+
+
+    <TextView
+        android:layout_margin="5dp"
+        android:id="@+id/user_name"
+        android:maxLines="4"
+        android:hint="请复制到件通知信息\nds\ndsd\ndsds"
+        android:textSize="15sp"
+        android:background="@drawable/shape_cicler"
+        android:layout_width="match_parent"
+        android:layout_height="100dp" />
+        <Button
+            android:id="@+id/details_neg"
+            android:layout_width="match_parent"
+            android:layout_margin="20dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="确定代取"
+            android:textSize="20sp"
+            android:textColor="#fffdfd"
+            android:background="@drawable/shap_register"
+            android:layout_height="50dp" />
+
+</LinearLayout>

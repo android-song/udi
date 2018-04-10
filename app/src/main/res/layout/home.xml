@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:text="邮你U递"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:background="#f50606"
+        android:textColor="#fdfafa"
+        android:id="@+id/textView"
+        />
+
+    <LinearLayout
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/input_bg"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:hint="学校："
+            android:textSize="15sp"
+            android:paddingLeft="10dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_height="wrap_content" />
+        <Spinner
+            android:id="@+id/home_spinerone"
+            android:entries="@array/school"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </Spinner>
+        <View
+            android:layout_width="1dp"
+            android:background="#dfdede"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/input_bg"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:hint="取件时间："
+            android:textSize="15sp"
+            android:paddingLeft="10dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_height="wrap_content" />
+        <Spinner
+            android:id="@+id/home_spinertwo"
+            android:entries="@array/time"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </Spinner>
+        <View
+            android:layout_width="1dp"
+            android:background="#dfdede"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="0dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/input_bg"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:hint="送件时间："
+            android:textSize="15sp"
+            android:paddingLeft="10dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_height="wrap_content" />
+        <Spinner
+            android:id="@+id/home_spinerthree"
+            android:entries="@array/time"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </Spinner>
+        <View
+            android:layout_width="1dp"
+            android:background="#dfdede"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="0dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/input_bg"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:hint="物品大小："
+            android:textSize="15sp"
+            android:paddingLeft="10dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_height="wrap_content" />
+        <Spinner
+            android:id="@+id/home_spinerfour"
+            android:entries="@array/weight"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </Spinner>
+        <View
+            android:layout_width="1dp"
+            android:background="#dfdede"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:background="@drawable/input_bg"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:hint="快递信息："
+            android:paddingLeft="10dp"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/user_courier"
+            android:hint="请输入"
+            android:imeOptions="actionNext"
+            android:textSize="15sp"
+            android:singleLine="true"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <View
+            android:layout_width="1dp"
+            android:background="#dfdede"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/input_bg"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_height="0dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:paddingLeft="10dp"
+            android:hint="联系方式："
+            android:textSize="15sp"
+            android:gravity="center"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/user_phone"
+            android:hint="请输入"
+            android:textSize="15sp"
+
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <View
+            android:layout_width="1dp"
+            android:background="#dfdede"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:padding="10dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <TextView
+            android:textColor="@color/blue"
+            android:text="打赏小费"
+            android:textSize="15sp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <Button
+            android:text="一"
+            android:textSize="15sp"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/shap_name"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+        <TextView
+            android:text="3"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:textSize="20sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:background="@drawable/ic_add_black_24dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+        <TextView
+            android:text="元"
+            android:textSize="15sp"
+            android:textColor="@color/colorAccent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    <take.LineBreakLayout
+        android:id="@+id/user_linebreaklayout"
+        android:layout_weight="1"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+    </take.LineBreakLayout>
+  <ScrollView
+      android:layout_weight="3"
+      android:layout_width="match_parent"
+      android:layout_height="0dp">
+    <EditText
+        android:layout_margin="5dp"
+        android:id="@+id/user_name"
+        android:hint="备注：请复制到件通知信息fgfgdfg\nfdf\nfdfs"
+        android:textSize="15sp"
+        android:gravity="center"
+        android:maxLines="4"
+        android:background="@drawable/shape_cicler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+ </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <TextView
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:text="应付款：3元"
+            android:layout_gravity="center"
+            android:textColor="#f40606"
+            android:background="#fff6f6"
+            android:layout_height="?attr/actionBarSize" />
+
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/user_release"
+            android:layout_width="match_parent"
+            android:text="点击发布我的取件信息"
+            android:layout_gravity="center"
+            android:textColor="#f40606"
+            android:background="#fff6f6"
+            android:layout_height="?attr/actionBarSize" />
+
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:background="#dfdede"
+        android:layout_height="1dp" />
+</LinearLayout>

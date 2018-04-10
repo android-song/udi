@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:clipToPadding="true"
+        android:background="#f50606"
+        android:fitsSystemWindows="true"
+        android:elevation="3dp"
+        android:layout_height="?attr/actionBarSize">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:text="聊天列表"
+            android:layout_marginLeft="-24dp"
+            android:textColor="#fdfafa"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:id="@+id/textView"
+            />
+
+    </LinearLayout>
+<android.support.v7.widget.RecyclerView
+    android:id="@+id/meg_list"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+</LinearLayout>

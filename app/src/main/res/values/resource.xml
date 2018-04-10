@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LineBreakLayout">
+        <!--标签之间左右距离-->
+        <attr name="leftAndRightSpace" format="dimension" />
+        <!--标签行距-->
+        <attr name="rowSpace" format="dimension" />
+    </declare-styleable>
+    <string-array name="school">
+        <item>西安邮电大学</item>
+        <item>陕西师范大学</item>
+        <item>西北政法大学</item>
+        <item>西北大学</item>
+        <item>西安交通大学</item>
+    </string-array>
+    <string-array name="sex">
+        <item>男</item>    <item>女</item>
+
+    </string-array>
+    <string-array  name="spinner">
+        <item >中通</item>
+        <item >申通</item>
+        <item >圆通</item>
+        <item >菜鸟驿站</item>
+    </string-array>
+    <string-array  name="type">
+        <item >玻璃</item>
+        <item >书籍</item>
+        <item >衣服</item>
+        <item >其他</item>
+    </string-array>
+    <string-array  name="time">
+        <item >下午7点</item>
+        <item >下午6点</item>
+        <item >下午5点</item>
+        <item >下午4点</item>
+        <item >下午3点</item>
+        <item >下午2点</item>
+        <item >下午1点</item>
+        <item >中午12点</item>
+    </string-array>
+    <string-array  name="weight">
+        <item >大</item>
+        <item >中</item>
+        <item >小</item>
+        <item >超大</item>
+    </string-array>
+    <string-array  name="other">
+        <item >中通</item>
+        <item >申通</item>
+        <item >圆通</item>
+        <item >菜鸟驿站</item>
+    </string-array>
+</resources>

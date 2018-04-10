@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/left_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left|center">
+        <ImageView
+            android:id="@+id/chat_picture"
+            android:padding="10dp"
+            android:src="@mipmap/default_avatar"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp" />
+        <TextView
+            android:id="@+id/left_msg"
+            android:padding="10dp"
+            android:text="665656"
+            android:maxLines="4"
+            android:background="@drawable/chatfrom_bg_focused"
+            android:layout_width="wrap_content"
+            android:maxWidth="350dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="10dp"
+          />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/right_Layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right|center"
+        >
+
+        <TextView
+            android:id="@+id/right_msg"
+            android:text="555ddddddddddd55"
+            android:padding="10dp"
+           android:layout_marginRight="5dp"
+            android:maxLines="4"
+            android:gravity="center"
+            android:background="@drawable/chatto_bg_normal"
+            android:maxWidth="350dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"/>
+        <ImageView
+            android:id="@+id/chat_right"
+            android:padding="10dp"
+            android:src="@mipmap/default_avatar"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp" />
+    </LinearLayout>
+</RelativeLayout>
