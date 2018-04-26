@@ -30,6 +30,15 @@ public class NotificationDef {
     public static int SHOW_LOADING=getNotificationID();
     public static int HIDEN_LOADING=getNotificationID();
     public static int RELEASE=getNotificationID();
+    public static int UPDATE_RELEASE_LIST=getNotificationID();
+    public static int GO_DETAIL=getNotificationID();
+    public static int UPDATE_DETAIL=getNotificationID();
+    public static int ORDER_CLICK=getNotificationID();
+    public static int SETTINGFRAGMENT_SHOW=getNotificationID();
+    public static int HISTORYFRAGMENT_SHOW=getNotificationID();
+    public static int RELEASEFRAGMENT_SHOW=getNotificationID();
+    public static int HAVE_ORDER_STATE=getNotificationID();
+    public static int COMPLETE_STATE=getNotificationID();
     private static int getNotificationID() {
         return NotificationID++;
     }

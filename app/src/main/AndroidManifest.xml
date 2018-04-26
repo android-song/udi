@@ -40,13 +40,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="home.MessageActivity"></activity>
-        <activity android:name="home.Registered"></activity>
-        <activity android:name=".DetailsActivity"></activity>
-        <activity android:name=".HistoryActivity"></activity>
-        <activity android:name=".SuccessfulActivity"></activity>
-        <activity android:name=".take.MessageList"></activity>
-        <activity android:name=".ChatActivity"></activity>
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.example.a11059.udi"

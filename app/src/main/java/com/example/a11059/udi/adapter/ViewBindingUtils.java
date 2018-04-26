@@ -7,12 +7,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.a11059.udi.R;
 import com.example.a11059.udi.ToolUtils;
 import com.example.a11059.udi.bomb.MyUser;
+import com.example.a11059.udi.home.model.UserItem;
 import com.example.a11059.udi.notify.Notification;
 import com.example.a11059.udi.notify.NotificationCenter;
 import com.example.a11059.udi.notify.NotificationDef;
@@ -34,11 +36,39 @@ public class ViewBindingUtils {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("demo",""+name);
+                if (!name.isEmpty()){
+                    switch (name){
+                        case "1":
+                            NotificationCenter.getNotification().notify(Notification.obtain(NotificationDef.SETTINGFRAGMENT_SHOW));
+                            break;
+                        case "2":
+                            NotificationCenter.getNotification().notify(Notification.obtain(NotificationDef.HISTORYFRAGMENT_SHOW));
+                            break;
+                        case "3":
+                            NotificationCenter.getNotification().notify(Notification.obtain(NotificationDef.RELEASEFRAGMENT_SHOW));
+                            break;
+                        case "4":
+
+                            break;
+                        case "5":
+                            break;
+
+
+                    }
+                }
             }
         });
     }
-
+    @BindingAdapter({"click"})
+    public static void click(final LinearLayout view, final UserItem name) {
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("demo",""+name);
+                NotificationCenter.getNotification().notify(Notification.obtain(NotificationDef.GO_DETAIL,name));
+            }
+        });
+    }
     @BindingAdapter({"backClick"})
     public static void backClick(final Button view, final String name) {
         view.setOnClickListener(new View.OnClickListener() {
@@ -71,9 +101,31 @@ public class ViewBindingUtils {
                             ToolUtils.clearUser();
                             NotificationCenter.getNotification().notify(Notification.obtain(NotificationDef.LOGIN_OUT_CLICK));
                             break;
+                        case "order":
+                            NotificationCenter.getNotification().notify(Notification.obtain(NotificationDef.ORDER_CLICK));
+                            break;
+                        case "orderState":
+                            NotificationCenter.getNotification().notify(Notification.obtain(NotificationDef.ORDER_CLICK));
+                            break;
                     }
                 }
             }
+        });
+    }
+
+    @BindingAdapter({"OrderClick"})
+    public static void orderClick(final TextView view, final UserItem name) {
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("demo",""+name);
+//                if ("已接单".equals(name.getReleaseOrderModel().getState())){
+                    NotificationCenter.getNotification().notify(Notification.obtain(NotificationDef.HAVE_ORDER_STATE,name));
+//                }
+//                if ("订单完成".equals(name.getReleaseOrderModel().getState())){
+//                    NotificationCenter.getNotification().notify(Notification.obtain(NotificationDef.COMPLETE_STATE,name));
+//                }
+                }
         });
     }
     @BindingAdapter({"click"})
@@ -126,6 +178,9 @@ public class ViewBindingUtils {
                             Log.d("demo",""+name);
 
                             break;
+                        case "login":
+                            NotificationCenter.getNotification().notify(Notification.obtain(NotificationDef.LOGIN_CLICK));
+                            break;
                     }
                 }
             }
@@ -168,13 +223,16 @@ public class ViewBindingUtils {
 
     @BindingAdapter(value = { "imageUrl", "error" }, requireAll = false)
     public static void loadImage(CircleImageView view, String url, Drawable error) {
-//        Glide.with(view.getContext()).load(url).into(view);
+        Glide.with(view.getContext()).load(url).into(view);
     }
 
     @BindingAdapter({"setAdapter"})
     public static <Adapter extends DataBaseAdapter> void setAdapter(PullToRefreshListView lv, Adapter mAdapter){
         lv.setAdapter(mAdapter);
     }
-
+    @BindingAdapter({"setListViewAdapter"})
+    public static <Adapter extends DataBaseAdapter> void setListViewAdapter(ListView lv, Adapter mAdapter){
+        lv.setAdapter(mAdapter);
+    }
 
 }

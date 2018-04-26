@@ -357,4 +357,6 @@ public class SettingFragment extends BaseFragment implements BaseNotify{
             e.printStackTrace();
         }
     }
+
+
 }

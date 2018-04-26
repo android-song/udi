@@ -61,4 +61,5 @@
     <string name="release_fail">发布订单失败</string>
     <string name="time_format">2007-01-01 00:00</string>
     <string name="time_format_end">2027-12-31 23:59</string>
+    <string name="state_release">已发布</string>
 </resources>

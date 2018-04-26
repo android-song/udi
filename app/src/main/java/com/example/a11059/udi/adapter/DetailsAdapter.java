@@ -6,24 +6,22 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.a11059.udi.DetailsActivity;
-
 import java.util.List;
 
 /**
  * Created by 11059 on 2016/10/22.
  */
 public class DetailsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
-    private  String [] lists;
-    private LinearLayout view;
-    private DetailsActivity context;
-    private  ListView listView;
-    private List<String> list;
-    public DetailsAdapter(DetailsActivity context, String[] lists, RecyclerView listView, List<String> strings) {
-        this.lists=lists;
-        this.list=strings;
-        this.context=context;
-    }
+//    private  String [] lists;
+//    private LinearLayout view;
+//    private DetailsActivity context;
+//    private  ListView listView;
+//    private List<String> list;
+//    public DetailsAdapter(DetailsActivity context, String[] lists, RecyclerView listView, List<String> strings) {
+//        this.lists=lists;
+//        this.list=strings;
+//        this.context=context;
+//    }
 
 
 

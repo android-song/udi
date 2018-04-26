@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data class="HistoryDataBinding">
+
+        <variable
+            name="adapter"
+            type="com.example.a11059.udi.adapter.DataBaseAdapter"></variable>
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/tittle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titile_bar_size"
+        android:layout_alignParentTop="true"
+        android:background="@color/tt_title_bar_color"
+        android:clipToPadding="true"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/ic_arrow_back_white_24dp"
+            app:backClick="@{`editorBack`}" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="32dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="取件历史"
+            android:textColor="#fdfafa"
+            android:textSize="@dimen/title_bar_tv_size" />
+
+    </LinearLayout>
+
+
+        <ListView
+            android:id="@+id/list_view"
+            android:layout_width="fill_parent"
+            android:divider="@null"
+            android:layout_height="fill_parent"
+            android:background="@color/tt_bottom_color"
+            android:fastScrollEnabled="false"
+            android:scrollbars="none"
+            bind:setListViewAdapter="adapter" />
+    </LinearLayout>
+</layout>

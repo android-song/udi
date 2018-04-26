@@ -24,6 +24,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ListView;
 
 import com.bumptech.glide.Glide;
 import com.example.a11059.udi.MainActivity;
@@ -43,6 +44,7 @@ import com.example.a11059.udi.user.OrderInformationModel;
 import com.example.a11059.udi.user.ReleaseOrderModel;
 import com.example.a11059.udi.user.User;
 import com.example.a11059.udi.utils.BaseFragment;
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.hyphenate.EMMessageListener;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMConversation;
@@ -88,11 +90,22 @@ public class Take extends BaseFragment implements TabLayout.OnTabSelectedListene
             dataBinding.listView.setAdapter(dataBaseAdapter);
             NotificationCenter.getNotification().register(NotificationDef.UPDATA_USERINFO, this);
             NotificationCenter.getNotification().register(NotificationDef.LOGIN_OUT_CLICK, this);
+            NotificationCenter.getNotification().register(NotificationDef.UPDATE_RELEASE_LIST, this);
+            bindRefresh();
             updateUserInfo();
             requestReleaseData();
         }
 
         return dataBinding.getRoot();
+    }
+
+    private void bindRefresh() {
+        dataBinding.listView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener<ListView>() {
+            @Override
+            public void onRefresh(PullToRefreshBase<ListView> refreshView) {
+                requestReleaseData();
+            }
+        });
     }
 
     private void requestReleaseData() {
@@ -103,14 +116,13 @@ public class Take extends BaseFragment implements TabLayout.OnTabSelectedListene
             @Override
             public void done(List<ReleaseOrderModel> object, BmobException e) {
                 if(e==null){
+                    userItems.clear();
                     for (ReleaseOrderModel orderModel : object) {
-                        Log.e("demo","查询成功"+orderModel.getMyUser().getName());
                         userItems.add(new UserItem(orderModel));
                     }
                     Log.e("demo","查询成功：共"+object.size()+"条数据。"+"userItems size"+userItems.size());
-
                     dataBaseAdapter.addData(userItems);
-
+                    dataBinding.listView.onRefreshComplete();
                 }else{
                     Log.i("bmob","失败："+e.getMessage()+","+e.getErrorCode());
                 }
@@ -132,7 +144,9 @@ public class Take extends BaseFragment implements TabLayout.OnTabSelectedListene
         Log.d("demo", "take notify" );
         if (notification.id==NotificationDef.UPDATA_USERINFO||notification.id==NotificationDef.LOGIN_OUT_CLICK){
                 updateUserInfo();
-
+            }
+        if (notification.id==NotificationDef.UPDATE_RELEASE_LIST){
+            requestReleaseData();
             }
     }
 
@@ -180,11 +194,6 @@ public class Take extends BaseFragment implements TabLayout.OnTabSelectedListene
                 count = 99;
             }
             msgUsers.add(msgUser);
-//            MsgList msgUser=new MsgList();
-//            msgUser.setName(entry.getKey());
-//            msgUser.setSize(entry.getValue().size());
-////            msgUser.setTime();
-//            username.add(msgUser);
         }
         if (msgUsers.size() > 0) {
             Message message = new Message();

@@ -72,6 +72,7 @@ public class Landing extends BaseFragment implements View.OnClickListener,BaseVi
     private View verificationBtn;
     private EditText phone;
     private EditText verification;
+    private Button back;
 
     @Nullable
     @Override
@@ -87,6 +88,7 @@ public class Landing extends BaseFragment implements View.OnClickListener,BaseVi
 
 
     private void init() {
+        back=(Button) view.findViewById(R.id.btn_back);
         user_name= (EditText)view.findViewById(R.id.persion_name);
         passward= (EditText)view.findViewById(R.id.persion_passward);
         forget= (TextView)view.findViewById(R.id.forget);
@@ -106,8 +108,8 @@ public class Landing extends BaseFragment implements View.OnClickListener,BaseVi
         forget.setOnClickListener(this);
         but_go= (Button)view.findViewById(R.id.persion_go);
         but_go.setOnClickListener(this);
-//         commonUtils=new MainActivity.CommonUtils();
-//        myListener=new MyListener(this);
+        back.setOnClickListener(this);
+
     }
 
 
@@ -138,7 +140,9 @@ public class Landing extends BaseFragment implements View.OnClickListener,BaseVi
             case R.id.verification_login_btn:
                 landingPresenter.verificationLogin(phone.getText().toString(),verification.getText().toString());
                 break;
-
+            case R.id.btn_back:
+                NotificationCenter.getNotification().notify(Notification.obtain(NotificationDef.LOGIN_OUT_CLICK));
+                break;
 
         }
     }

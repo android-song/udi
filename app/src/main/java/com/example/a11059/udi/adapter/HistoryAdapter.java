@@ -12,7 +12,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.a11059.udi.DetailsActivity;
 import com.example.a11059.udi.HistoryActivity;
 import com.example.a11059.udi.R;
 import com.example.a11059.udi.TypeViewHolder;
@@ -84,10 +83,10 @@ class    MyTakeViewHolder extends  TypeViewHolder {
         takeBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("11111111111","655555555555555555555");
-                Intent intent=new Intent(mainActivity, DetailsActivity.class);
-                Bundle bundle=new Bundle();
-                bundle.putString("dd","1");
+//                Log.i("11111111111","655555555555555555555");
+//                Intent intent=new Intent(mainActivity, DetailsActivity.class);
+//                Bundle bundle=new Bundle();
+//                bundle.putString("dd","1");
 
             }
         });

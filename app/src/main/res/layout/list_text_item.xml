@@ -14,6 +14,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
+        app:click="@{user}"
         android:background="@drawable/item_selector"
         android:orientation="horizontal">
 
@@ -75,28 +76,31 @@
         <LinearLayout
             android:layout_width="100dp"
             android:layout_height="match_parent"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:orientation="vertical">
             <TextView
                 android:id="@+id/take_time"
-                android:layout_width="100dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:gravity="center"
+                android:maxLines="1"
                 android:lineSpacingExtra="10dp"
-                android:paddingLeft="10dp"
-                android:text="@{user.releaseOrderModel.money}"
-                android:textSize="15sp" />
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="@{user.releaseOrderModel.takeTime}"
+                android:textSize="12sp" />
             <TextView
                 android:id="@+id/take_money"
-                android:layout_width="100dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
                 android:gravity="center"
                 android:lineSpacingExtra="10dp"
-                android:paddingLeft="10dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:background="@drawable/shap_go"
                 android:text="@{user.releaseOrderModel.money}"
-                android:textColor="@color/tt_title_bar_color"
+                android:textColor="@color/winte"
                 android:textSize="15sp" />
 
 

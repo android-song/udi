@@ -40,11 +40,13 @@ import com.example.a11059.udi.home.Home;
 import com.example.a11059.udi.home.Landing;
 import com.example.a11059.udi.home.SettingFragment;
 import com.example.a11059.udi.home.model.Persion;
+import com.example.a11059.udi.home.model.TakeHistoryFragment;
 import com.example.a11059.udi.model.HttpRequestModel;
 import com.example.a11059.udi.notify.BaseNotify;
 import com.example.a11059.udi.notify.Notification;
 import com.example.a11059.udi.notify.NotificationCenter;
 import com.example.a11059.udi.notify.NotificationDef;
+import com.example.a11059.udi.take.DetailsFragment;
 import com.example.a11059.udi.take.Take;
 import com.example.a11059.udi.user.User;
 import com.example.a11059.udi.utils.FragmentTabHost;
@@ -54,6 +56,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.IllegalFormatCodePointException;
 import java.util.List;
 
 import cn.bmob.v3.Bmob;
@@ -80,6 +83,8 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     private File image;
     private Uri mCutUri;
     private CommonStatusLayout commonStatusLayout;
+    private DetailsFragment detailFragment;
+    private TakeHistoryFragment historyFragment;
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -88,18 +93,20 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         super.onCreate(savedInstanceState);
         NotificationCenter.getNotification().register(NotificationDef.LOGIN_CLICK, this);
         NotificationCenter.getNotification().register(NotificationDef.LOGIN_SUCCESS_CLICK, this);
-        NotificationCenter.getNotification().register(NotificationDef.ADDRESS_CLICK, this);
-        NotificationCenter.getNotification().register(NotificationDef.PHONE_CLICK, this);
         NotificationCenter.getNotification().register(NotificationDef.LOGIN_OUT_CLICK, this);
         NotificationCenter.getNotification().register(NotificationDef.OPEN_CAMERA, this);
         NotificationCenter.getNotification().register(NotificationDef.OPEN_GALLERY, this);
         NotificationCenter.getNotification().register(NotificationDef.SHOW_LOADING, this);
         NotificationCenter.getNotification().register(NotificationDef.HIDEN_LOADING, this);
+        NotificationCenter.getNotification().register(NotificationDef.GO_DETAIL, this);
+        NotificationCenter.getNotification().register(NotificationDef.SETTINGFRAGMENT_SHOW, this);
+        NotificationCenter.getNotification().register(NotificationDef.HISTORYFRAGMENT_SHOW, this);
+        NotificationCenter.getNotification().register(NotificationDef.RELEASEFRAGMENT_SHOW, this);
         init();
         initBottom();
     }
     @Override
-    public void notify(Notification notification   )    {
+    public void notify(Notification notification)    {
         image =new File(Environment.getExternalStorageDirectory(), Info.PHOTO_NAME);
         if (notification.id==NotificationDef.OPEN_GALLERY){
             Intent intent = new Intent(Intent.ACTION_PICK);
@@ -122,7 +129,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
             commonStatusLayout.hideLoading();
             return;
         }
-        setDefaultFragment(notification.id);
+        setDefaultFragment(notification.id,notification);
 
     }
      @Override
@@ -244,7 +251,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         return intent;
     }
 
-    private void setDefaultFragment(int id) {
+    private void setDefaultFragment(int id, Notification notification) {
         fm = getSupportFragmentManager();
         tx = fm.beginTransaction();
         if (frameLayout==null) {
@@ -267,6 +274,28 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
                 tx.commit();
             }
         }
+        if (ToolUtils.getUser()==null){
+            Toast.makeText(this,"请登录",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (id==NotificationDef.GO_DETAIL) {
+
+            frameLayout.setVisibility(View.VISIBLE);
+            viewPager.setVisibility(View.GONE);
+            fragmentTabHost.setVisibility(View.GONE);
+            isMainPageShow=false;
+            if (detailFragment==null) {
+                detailFragment = new DetailsFragment(notification);
+                tx.replace(R.id.ll, detailFragment);
+                tx.addToBackStack(null);
+                tx.commit();
+            }else{
+                tx.replace(R.id.ll, detailFragment);
+                tx.addToBackStack(null);
+                tx.commit();
+                NotificationCenter.getNotification().notify(Notification.obtain(NotificationDef.UPDATE_DETAIL,notification.object));
+            }
+        }
         if (id==NotificationDef.LOGIN_SUCCESS_CLICK||id==NotificationDef.LOGIN_OUT_CLICK) {
             frameLayout.setVisibility(View.GONE);
             viewPager.setVisibility(View.VISIBLE);
@@ -274,7 +303,8 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
             isMainPageShow=true;
         }
 
-        if (id==NotificationDef.ADDRESS_CLICK||id==NotificationDef.PHONE_CLICK) {
+        if (id==NotificationDef.SETTINGFRAGMENT_SHOW ){
+
             frameLayout.setVisibility(View.VISIBLE);
             viewPager.setVisibility(View.GONE);
             fragmentTabHost.setVisibility(View.GONE);
@@ -289,6 +319,36 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
                 tx.addToBackStack(null);
                 tx.commit();
             }
+
+        }
+
+        if (id==NotificationDef.HISTORYFRAGMENT_SHOW ||id==NotificationDef.RELEASEFRAGMENT_SHOW ){
+            frameLayout.setVisibility(View.VISIBLE);
+            viewPager.setVisibility(View.GONE);
+            fragmentTabHost.setVisibility(View.GONE);
+            isMainPageShow=false;
+            if (historyFragment==null) {
+                historyFragment = new TakeHistoryFragment();
+                if (id==NotificationDef.HISTORYFRAGMENT_SHOW){
+                    historyFragment.setNotification(NotificationDef.HISTORYFRAGMENT_SHOW);
+                }else  if (id==NotificationDef.RELEASEFRAGMENT_SHOW){
+                    historyFragment.setNotification(NotificationDef.RELEASEFRAGMENT_SHOW);
+                }
+                tx.replace(R.id.ll, historyFragment);
+                tx.addToBackStack(null);
+                tx.commit();
+            }else {
+                if (id==NotificationDef.HISTORYFRAGMENT_SHOW){
+                    historyFragment.setNotification(NotificationDef.HISTORYFRAGMENT_SHOW);
+                }else  if (id==NotificationDef.RELEASEFRAGMENT_SHOW){
+                    historyFragment.setNotification(NotificationDef.RELEASEFRAGMENT_SHOW);
+                }
+                tx.replace(R.id.ll, historyFragment);
+                tx.addToBackStack(null);
+                tx.commit();
+                NotificationCenter.getNotification().notify(Notification.obtain(NotificationDef.UPDATE_RELEASE_LIST));
+            }
+
         }
 
 

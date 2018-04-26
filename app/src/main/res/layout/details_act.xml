@@ -1,118 +1,292 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:openXu="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:gravity="center_horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout
-        android:orientation="horizontal"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="DetailDataBinding">
+
+        <variable
+            name="orderInformation"
+            type="com.example.a11059.udi.user.OrderInformationModel"></variable>
+    </data>
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:clipToPadding="true"
-        android:background="#f50606"
-        android:fitsSystemWindows="true"
-        android:elevation="3dp"
-        android:layout_height="?attr/actionBarSize">
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/tittle"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/titile_bar_size"
+            android:layout_alignParentTop="true"
+            android:background="@color/tt_title_bar_color"
+            android:clipToPadding="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_back"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/ic_arrow_back_white_24dp"
+                app:backClick="@{`editorBack`}" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="32dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="详情"
+                android:textColor="#fdfafa"
+                android:textSize="@dimen/title_bar_tv_size" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_below="@+id/tittle"
+            android:background="@color/tt_title_bar_color"></LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/detail_card"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_below="@+id/tittle"
+            android:layout_margin="25dp"
+            android:background="@drawable/shap"
+            android:padding="2dp">
+
+            <com.example.a11059.udi.utils.CircleImageView
+                android:id="@+id/hear_icon"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:gravity="center_vertical|right"
+                android:padding="6dp"
+                android:src="@drawable/login_icon_account"
+                android:textColor="@color/release_item_tv_color"
+                android:textSize="@dimen/release_text_size" />
+
+            <LinearLayout
+                android:id="@+id/hear_right"
+                android:layout_width="match_parent"
+                android:layout_height="85dp"
+                android:layout_toRightOf="@+id/hear_icon"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/detail_name"
+                        android:layout_width="0dp"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:text="真实姓名"
+                        android:textColor="@color/release_item_tv_color"
+                        android:textSize="20sp" />
+
+                    <com.example.a11059.udi.utils.CircleImageView
+                        android:id="@+id/isUrgent_img"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:src="@mipmap/icon_user" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/detail_money_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:hint="未填写"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="15dp"
+                    android:textColor="@color/release_item_tv_color"
+                    android:textSize="10sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/nick"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="2dp"
+                        android:gravity="center_vertical"
+                        android:hint="未填写"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="15dp"
+                        android:textColor="@color/release_item_tv_color"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:id="@+id/detail_sex_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="2dp"
+                        android:gravity="center_vertical"
+                        android:hint="未填写"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="15dp"
+                        android:textColor="@color/release_item_tv_color"
+                        android:textSize="10sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/detail_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/hear_right"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/item_selector"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:editorClick="@{`4`}">
+
+                <ImageView
+
+                    android:layout_width="15dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/login_icon_password" />
+
+                <TextView
+                    android:id="@+id/detail_phone_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:hint="未填写"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="15dp"
+                    android:textColor="@color/release_item_tv_color"
+                    android:textSize="10sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/detail_gmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/detail_phone"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/item_selector"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:editorClick="@{`5`}">
+
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/login_icon_password" />
+
+                <TextView
+                    android:id="@+id/detail_gmail_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:hint="未填写"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="15dp"
+                    android:textColor="@color/release_item_tv_color"
+                    android:textSize="10sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/detail_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/detail_gmail"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/item_selector"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:editorClick="@{`6`}">
+
+                <ImageView
+
+                    android:layout_width="15dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/login_icon_password" />
+
+                <TextView
+                    android:id="@+id/detail_address_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:hint="未填写"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="15dp"
+                    android:textColor="@color/release_item_tv_color"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/detail_note"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@+id/detail_card"
+            android:layout_marginTop="1dp"
+            android:background="@drawable/item_selector"
+            android:orientation="vertical"
+            app:editorClick="@{`7`}">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:text="备注"
+                android:textColor="@color/release_item_tv_color"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/detail_note_tv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:hint="未填写"
+                android:paddingLeft="25dp"
+                android:paddingRight="15dp"
+                android:textColor="@color/release_item_tv_color"
+                android:textSize="@dimen/release_text_size" />
+
+
+        </LinearLayout>
 
         <TextView
+            android:id="@+id/order"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:text="接单"
-            android:layout_marginLeft="-24dp"
-            android:textColor="#fdfafa"
-            android:textSize="20sp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/item_selector"
             android:gravity="center"
-            android:id="@+id/textView"
-            />
-        <Button
-            android:id="@+id/btu_chat"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginLeft="-50dp"
-            android:background="@drawable/icon_message_normal"
-            android:gravity="center_vertical|left" />
-    </LinearLayout>
+            android:text="确认接单"
+            android:textColor="@color/release_item_tv_color"
+            android:textSize="@dimen/release_text_size"
+            app:clickText="@{`order`}" />
+    </RelativeLayout>
 
-    <View
-        android:background="#c6bdbd"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"></View>
-  <TextView
-      android:layout_marginTop="10dp"
-      android:layout_marginLeft="15dp"
-      android:layout_marginRight="15dp"
-      android:padding="10dp"
-      android:background="@drawable/input_bg"
-      android:layout_width="match_parent"
-      android:gravity="center"
-      android:maxLines="3"
-      android:text="思维都是   2016/08/56\n男  18392059576"
-      android:layout_height="wrap_content" />
-    <TextView
-     android:layout_marginLeft="15dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="15dp"
-        android:padding="10dp"
-        android:gravity="center"
-        android:textColor="#fc0a0a"
-        android:layout_width="match_parent"
-        android:text="赏金   5亿元"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="10dp"
-        android:padding="10dp"
-        android:gravity="center"
-        android:background="@drawable/input_bg"
-        android:layout_width="match_parent"
-        android:text="西邮桥头"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:gravity="center_vertical"
-        android:layout_width="wrap_content"
-        android:drawablePadding="5dp"
-        android:drawableLeft="@drawable/ic_expand_more_black_24dp"
-        android:text="送到"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:padding="10dp"
-        android:gravity="center"
-        android:background="@drawable/input_bg"
-        android:layout_width="match_parent"
-        android:text="西邮桥下"
-        android:layout_height="wrap_content" />
-    <take.ItemViewDemo
-        android:id="@+id/lineBreakLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dip"
-        android:focusable="false"
-        openXu:leftAndRightSpace="20dip"
-        openXu:rowSpace="10dip"/>
-
-
-    <TextView
-        android:layout_margin="5dp"
-        android:id="@+id/user_name"
-        android:maxLines="4"
-        android:hint="请复制到件通知信息\nds\ndsd\ndsds"
-        android:textSize="15sp"
-        android:background="@drawable/shape_cicler"
-        android:layout_width="match_parent"
-        android:layout_height="100dp" />
-        <Button
-            android:id="@+id/details_neg"
-            android:layout_width="match_parent"
-            android:layout_margin="20dp"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:text="确定代取"
-            android:textSize="20sp"
-            android:textColor="#fffdfd"
-            android:background="@drawable/shap_register"
-            android:layout_height="50dp" />
-
-</LinearLayout>
+</layout>

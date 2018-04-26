@@ -1,25 +1,5 @@
 package com.example.a11059.udi.adapter;
 
-import android.content.Intent;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-
-import com.example.a11059.udi.DetailsActivity;
-import com.example.a11059.udi.MainActivity;
-import com.example.a11059.udi.R;
-import com.example.a11059.udi.TypeViewHolder;
-import com.example.a11059.udi.model.MsgUser;
-import com.example.a11059.udi.model.TakeUser;
-
-import java.util.ArrayList;
-import java.util.List;
-
-
 
 /**
  * Created by 11059 on 2016/11/7.

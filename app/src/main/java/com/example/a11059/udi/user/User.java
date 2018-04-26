@@ -21,6 +21,7 @@ import com.example.a11059.udi.notify.NotificationCenter;
 import com.example.a11059.udi.notify.NotificationDef;
 import com.example.a11059.udi.utils.BaseFragment;
 import com.example.a11059.udi.utils.CustomDatePicker;
+import com.example.a11059.udi.utils.EditorDialog;
 import com.example.a11059.udi.utils.PromptDialog;
 import com.example.a11059.udi.utils.SelectDialog;
 
@@ -49,7 +50,9 @@ public class User extends BaseFragment implements BaseNotify {
     OrderInformationModel orderInformationModel;
     private String promptText;
     private int promptType;
-
+    private int type;
+    private EditorDialog editorDialog;
+    private String hintText;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -63,6 +66,8 @@ public class User extends BaseFragment implements BaseNotify {
             NotificationCenter.getNotification().register(NotificationDef.LOGIN_OUT_CLICK, this);
             NotificationCenter.getNotification().register(NotificationDef.RELEASE, this);
             NotificationCenter.getNotification().register(NotificationDef.UPDATA_USERINFO, this);
+            NotificationCenter.getNotification().register(NotificationDef.ADDRESS_CLICK, this);
+            NotificationCenter.getNotification().register(NotificationDef.PHONE_CLICK, this);
             view = LayoutInflater.from(getContext()).inflate(R.layout.home, container, false);
             dataBinding = DataBindingUtil.bind(view);
             updateUserInfo();
@@ -100,9 +105,52 @@ public class User extends BaseFragment implements BaseNotify {
             updateUserInfo();
         }else if (notification.id==NotificationDef.RELEASE){
             release(notification);
+        }else if (notification.id==NotificationDef.ADDRESS_CLICK){
+            editorDialogShow(notification.id);
+        }
+        else if (notification.id==NotificationDef.PHONE_CLICK){
+            editorDialogShow(notification.id);
         }
     }
+    private void editorDialogShow(int i) {
+        type=i;
+        if (i==NotificationDef.ADDRESS_CLICK){
+            hintText=getString(R.string.address_tv);
+        }
+        if (i==NotificationDef.PHONE_CLICK){
+            hintText=getString(R.string.phone_tv);
+        }
+        try {
+            editorDialog = new EditorDialog(getContext());
+            editorDialog.setTitle(getString(R.string.prompt_tv));
+            editorDialog.setMessage(hintText);
+            editorDialog.setYesOnclickListener(getString(R.string.ok_tv), new EditorDialog.onYesOnclickListener() {
+                @Override
+                public void onYesClick(String message) {
+                    editorDialog.dismiss();
+                    if (type==NotificationDef.ADDRESS_CLICK){
+                        dataBinding.address.setText(message);
+                        return;
+                    }
+                    if (type==NotificationDef.PHONE_CLICK){
+                        dataBinding.userPhone.setText(message);
+                        return;
+                    }
 
+                }
+            });
+            editorDialog.setNoOnclickListener(getString(R.string.cancel_tv), new EditorDialog.onNoOnclickListener() {
+                @Override
+                public void onNoClick() {
+                    editorDialog.dismiss();
+                }
+            });
+            editorDialog.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
     private void release(Notification notification) {
         if (ToolUtils.getUser()==null){
             toast(getContext(),"请登录账号");
@@ -239,6 +287,7 @@ public class User extends BaseFragment implements BaseNotify {
             releaseOrderModel.setGmail(ToolUtils.getUser().getGmail());
 
         }
+        releaseOrderModel.setState(getString(R.string.state_release));
         releaseOrderModel.save(new SaveListener<String>() {
 
             @Override
@@ -246,6 +295,7 @@ public class User extends BaseFragment implements BaseNotify {
                 NotificationCenter.getNotification().notify(Notification.obtain(NotificationDef.HIDEN_LOADING));
                 if(e==null){
                     toast(getContext(),getString(R.string.release_success));
+                    NotificationCenter.getNotification().notify(Notification.obtain(NotificationDef.UPDATE_RELEASE_LIST));
                 }else{
                     Log.i("bmob","失败："+e.getMessage()+","+e.getErrorCode());
                     toast(getContext(),getString(R.string.release_fail));

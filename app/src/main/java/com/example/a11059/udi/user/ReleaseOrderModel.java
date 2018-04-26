@@ -85,6 +85,24 @@ public class ReleaseOrderModel extends BmobObject {
     private MyUser myUser;
     private String sex;
 
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    private String state;
+    public String getOrders() {
+        return orders;
+    }
+
+    public void setOrders(String orders) {
+        this.orders = orders;
+    }
+
+    private String orders;
 
     public String getGmail() {
         return gmail;
@@ -139,6 +157,15 @@ public class ReleaseOrderModel extends BmobObject {
     private Integer age;
     private String imgUrl;
     private String name;
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     private String type="OrderInformationModel";
 
 }
