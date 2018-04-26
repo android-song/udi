@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.a11059.udi.take.ItemViewDemo;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMConversation;
@@ -27,9 +28,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import model.MsgUser;
-import take.ItemViewDemo;
-import take.LineBreakLayout;
+
 
 /**
  * Created by 11059 on 2016/11/10.

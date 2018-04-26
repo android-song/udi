@@ -3,57 +3,19 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+
+
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:clipToPadding="true"
-        android:background="#f50606"
-        android:layout_height="?attr/actionBarSize">
-
-        <Button
-            android:id="@+id/btn_back"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginLeft="8dp"
-            android:background="@drawable/ic_arrow_back_white_24dp"
-            android:gravity="center_vertical|left" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:text="密码登录"
-            android:layout_marginLeft="-24dp"
-            android:textColor="#fdfafa"
-            android:textSize="20sp"
-            android:gravity="center"
-            android:id="@+id/textView"
-            />
-    </LinearLayout>
-
-
-
-    <TextView
-        android:id="@+id/now"
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:padding="5dp"
-        android:layout_marginBottom="5dp"
-        android:background="@drawable/shap"
-        android:text="手机短信验证登录 "
-        android:textColor="#000000"
-        android:textSize="20sp"
-        android:gravity="center"
-        android:layout_height="0dp" />
-    <LinearLayout
-        android:layout_weight="2"
         android:orientation="vertical"
         android:layout_margin="10dp"
         android:background="@drawable/input_bg"
         android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:layout_height="100dp">
         <EditText
-            android:id="@+id/custom_phone"
+            android:id="@+id/phone"
             android:paddingLeft="10dp"
-            android:hint="请输入手机号码？"
+            android:hint="请输入手机号码"
             android:drawablePadding="5dp"
             android:background="@null"
             android:layout_weight="1"
@@ -65,10 +27,10 @@
             android:background="#efeded"
             android:layout_height="1dp"></View>
         <EditText
-            android:id="@+id/custom_number"
+            android:id="@+id/verification"
             android:paddingLeft="10dp"
-            android:hint="请输入验证码!"
-            android:password="true"
+            android:hint="请输入验证码"
+            android:inputType="number"
             android:background="@null"
             android:drawablePadding="5dp"
             android:layout_weight="1"
@@ -76,34 +38,31 @@
             android:layout_width="match_parent"
             android:layout_height="0dp" />
     </LinearLayout>
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="点击注册即可注册成功并自动登录"
+        android:textSize="10dp" />
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_weight="1"
-        android:layout_height="0dp">
+        android:gravity="center"
+        android:layout_height="60dp">
         <Button
-            android:id="@+id/custom_btn"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="5dp"
-            android:layout_width="0dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="5dp"
+            android:id="@+id/verification_btn"
+            android:layout_margin="10dp"
+            android:layout_width="140dp"
             android:text="获取验证码"
-            android:textSize="20sp"
+            android:textSize="17sp"
             android:textColor="#000000"
             android:background="@drawable/shap_go"
-            android:layout_weight="1"
             android:layout_height="match_parent" />
         <Button
-            android:id="@+id/custom_next"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="30dp"
-            android:layout_width="0dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="5dp"
-            android:layout_weight="1"
-            android:textSize="20sp"
+            android:id="@+id/verification_login_btn"
+            android:layout_margin="10dp"
+            android:layout_width="140dp"
+            android:textSize="17sp"
             android:background="@drawable/shap_order"
             android:textColor="#fdfbfb"
             android:text="登录"

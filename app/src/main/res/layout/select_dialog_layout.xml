@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#11ffffff"
+    android:layout_height="match_parent"
+ >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+    <TextView
+        android:id="@+id/big_size"
+        android:background="@drawable/item_selector"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="大件"
+        android:textColor="#38ADFF"
+        android:textSize="@dimen/release_text_size" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#E4E4E4" />
+
+    <TextView
+        android:id="@+id/middle_size"
+        android:background="@drawable/item_selector"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textSize="@dimen/release_text_size"
+        android:gravity="center"
+        android:textColor="#38ADFF"
+        android:text="中件" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#E4E4E4" />
+
+    <TextView
+        android:id="@+id/small_size"
+        android:background="@drawable/item_selector"
+        android:textColor="#38ADFF"
+        android:gravity="center"
+        android:textSize="@dimen/release_text_size"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="小件" />
+
+    </LinearLayout>
+</RelativeLayout>

@@ -22,15 +22,17 @@
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="邮你U递"
         android:supportsRtl="true"
         android:name=".MyApplication"
+        android:configChanges="keyboardHidden|screenSize|orientation"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
         <activity android:name=".MainActivity"
-            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateVisible">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,15 +40,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="home.Landing"></activity>
         <activity android:name="home.MessageActivity"></activity>
         <activity android:name="home.Registered"></activity>
         <activity android:name=".DetailsActivity"></activity>
-        <activity android:name=".ChangeActivity"></activity>
         <activity android:name=".HistoryActivity"></activity>
         <activity android:name=".SuccessfulActivity"></activity>
-        <activity android:name="take.MessageList"></activity>
+        <activity android:name=".take.MessageList"></activity>
         <activity android:name=".ChatActivity"></activity>
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.example.a11059.udi"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <!--提供共享路径-->
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
         <activity
             android:name="com.mob.tools.MobUIShell"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"

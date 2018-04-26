@@ -1,9 +1,10 @@
 package com.example.a11059.udi;
 
 import android.content.DialogInterface;
-import android.support.v4.app.FragmentTabHost;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+
+import com.example.a11059.udi.utils.FragmentTabHost;
 
 /**
  * Created by 我 on 2016/9/19.

@@ -7,19 +7,22 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+
     <ImageView
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_weight="1"
+        android:layout_marginTop="2dp"
         android:id="@+id/button"
-        android:padding="3dp"
-        android:layout_gravity="center_horizontal" />
+        android:layout_width="29dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:padding="3dp" />
     <TextView
         android:id="@+id/text_shouye"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="10sp"
         android:text="首页"
-        android:padding="5dp"
+        android:padding="2dp"
         android:layout_gravity="center"
         /></LinearLayout>
 </LinearLayout>

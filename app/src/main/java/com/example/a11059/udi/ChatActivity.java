@@ -15,6 +15,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.a11059.udi.adapter.ChatAdapter;
+import com.example.a11059.udi.model.ChatUser;
 import com.hyphenate.EMMessageListener;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMConversation;
@@ -24,8 +26,7 @@ import com.hyphenate.chat.EMTextMessageBody;
 import java.util.ArrayList;
 import java.util.List;
 
-import adapter.ChatAdapter;
-import model.ChatUser;
+
 
 /**
  * Created by 11059 on 2016/12/14.

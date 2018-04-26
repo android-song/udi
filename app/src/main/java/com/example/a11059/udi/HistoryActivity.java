@@ -8,11 +8,13 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
+import com.example.a11059.udi.adapter.HistoryAdapter;
+import com.example.a11059.udi.home.DetailsHttpRequest;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import adapter.HistoryAdapter;
-import home.DetailsHttpRequest;
+
 
 /**
  * Created by 11059 on 2016/11/11.
@@ -39,17 +41,17 @@ public class HistoryActivity extends AppCompatActivity {
         switch (i){
             case 1:
                 textView.setText("取件历史");
-                DetailsHttpRequest detailsHttpRequest=new DetailsHttpRequest(1);
+//                DetailsHttpRequest detailsHttpRequest=new DetailsHttpRequest(1);
 //                detailsHttpRequest.start();
                 break;
             case 2:
                 textView.setText("我发布的");
-                DetailsHttpRequest detailsHttpRequest1=new DetailsHttpRequest(2);
+//                DetailsHttpRequest detailsHttpRequest1=new DetailsHttpRequest(2);
 //                detailsHttpRequest1.start();
                 break;
             case 3:
                 textView.setText("系统通知");
-                DetailsHttpRequest detailsHttpRequest2=new DetailsHttpRequest(1);
+//                DetailsHttpRequest detailsHttpRequest2=new DetailsHttpRequest(1);
 //                detailsHttpRequest2.start();
                 break;
 

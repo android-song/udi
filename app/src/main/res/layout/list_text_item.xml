@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="ItemBinding">
+
+        <import type="android.view.View" />
+
+        <variable
+            name="user"
+            type="com.example.a11059.udi.home.model.UserItem"></variable>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@drawable/item_selector"
+        android:orientation="horizontal">
+
+
+        <RelativeLayout
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_vertical">
+
+            <com.example.a11059.udi.utils.CircleImageView
+                android:id="@+id/portrait"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:loadImage="@{user.releaseOrderModel.imgUrl}"
+                android:padding="3dp" />
+
+            <com.example.a11059.udi.utils.CircleImageView
+                android:id="@+id/isUrgent_img"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:src="@mipmap/icon_user"
+                android:visibility="@{user.releaseOrderModel.isUrgent==user.ISURGENT? View.VISIBLE:View.GONE}" />
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:paddingLeft="15dp"
+                android:text="@{user.releaseOrderModel.nick}"
+                android:textColor="@color/tt_text_color"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/student_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:gravity="center_vertical"
+                android:lineSpacingExtra="10dp"
+                android:maxLines="4"
+                android:paddingLeft="15dp"
+                android:text="@{user.releaseOrderModel.address}"
+                android:textSize="15sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/take_time"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:lineSpacingExtra="10dp"
+                android:paddingLeft="10dp"
+                android:text="@{user.releaseOrderModel.money}"
+                android:textSize="15sp" />
+            <TextView
+                android:id="@+id/take_money"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:lineSpacingExtra="10dp"
+                android:paddingLeft="10dp"
+                android:text="@{user.releaseOrderModel.money}"
+                android:textColor="@color/tt_title_bar_color"
+                android:textSize="15sp" />
+
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</layout>

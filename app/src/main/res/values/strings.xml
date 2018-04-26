@@ -1,3 +1,64 @@
 <resources>
     <string name="app_name">udi</string>
+    <string name="take_message_text">消息</string>
+
+    <!--个人页item-->
+    <string name="edit_information_text">1</string>
+    <string name="take_history_text">2</string>
+    <string name="release_mail_text">3</string>
+    <string name="system_informs_text">4</string>
+    <string name="share_text">5</string>
+
+    <string name="login_text">6</string>
+
+
+    <!--发布页item-->
+    <string name="ok_text">6</string>
+    <string name="isUrgent_text">1</string>
+    <string name="size_text">2</string>
+    <string name="phone_text">3</string>
+    <string name="time_text">4</string>
+    <string name="address_text">5</string>
+    <string name="request_success">添加数据成功，返回objectId为：</string>
+
+
+
+    <!--dataPicker-->
+    <string name="cancle">取消</string>
+    <string name="title">请选择时间</string>
+    <string name="commit">确定</string>
+    <string name="year">年</string>
+    <string name="month">月</string>
+    <string name="day">日</string>
+    <string name="hour">时</string>
+    <string name="minute">分</string>
+
+    <string name="select_date">选择日期</string>
+    <string name="current_date">当前日期</string>
+    <string name="select_time">选择时间</string>
+    <string name="current_time">当前时间</string>
+    <string name="release_big_size_tv">大件</string>
+    <string name="release_middle_tv">中件</string>
+    <string name="release_small_tv">小件</string>
+    <string name="prompt_tv">提示</string>
+    <string name="urgent_prompt_tv">是否加急?</string>
+    <string name="ok_tv">确定</string>
+    <string name="cancel_tv">取消</string>
+    <string name="urgent_tv">加急</string>
+    <string name="ordinary_tv">正常</string>
+    <string name="select_time_tv">请选择时间</string>
+    <string name="real_name">请输入姓名</string>
+    <string name="nick_tv">请输入昵称</string>
+    <string name="address_tv">请输入地址</string>
+    <string name="phone_tv">请输入手机号</string>
+    <string name="email_tv">请输入邮箱地址</string>
+    <string name="camera">相机</string>
+    <string name="album">相册</string>
+    <string name="man">男</string>
+    <string name="women">女</string>
+    <string name="isrelease_tv">是否发布</string>
+    <string name="release_success">发布订单成功</string>
+    <string name="release_fail">发布订单失败</string>
+    <string name="time_format">2007-01-01 00:00</string>
+    <string name="time_format_end">2027-12-31 23:59</string>
 </resources>

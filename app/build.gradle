@@ -17,15 +17,34 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    sourceSets{
-        main{
+    sourceSets {
+        main {
             jniLibs.srcDirs = ['libs']
         }
     }
+    dataBinding {
+        enabled = true;
+    }
 }
-repositories{
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.2.3'
+    }
+}
 
-    flatDir{
+allprojects {
+    repositories {
+        jcenter()
+        //Bmob的maven仓库地址--必填
+        maven { url "https://raw.github.com/bmob/bmob-android-sdk/master" }
+    }
+}
+repositories {
+
+    flatDir {
         dirs 'libs' //就是你放aar的目录地址
     }
 }
@@ -35,24 +54,24 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile files('libs/MobCommons-2016.1012.1447.jar')
     compile files('libs/MobTools-2016.1012.1447.jar')
-    compile name:'SMSSDK-2.1.2',ext:'aar'
-    compile name:'SMSSDKGUI-2.1.2',ext:'aar'
-    compile 'com.facebook.fresco:fresco:0.12.0'
+    compile name: 'SMSSDK-2.1.2', ext: 'aar'
+    compile name: 'SMSSDKGUI-2.1.2', ext: 'aar'
+//    compile 'com.facebook.fresco:fresco:0.12.0'
     compile 'com.android.support:appcompat-v7:23.3.0'
     compile 'com.android.support:recyclerview-v7:23.3.0'
-    compile 'com.squareup.okhttp:okhttp:2.0.0'
-
-    compile 'com.squareup.okhttp3:okhttp:3.3.1'
-    compile 'com.google.code.gson:gson:2.7'
-    compile 'io.reactivex:rxjava:1.1.8'
-    compile 'io.reactivex:rxandroid:1.2.1'
+//    compile 'com.squareup.okhttp:okhttp:2.0.0'
+//    compile 'io.reactivex:rxjava:1.1.8'
+//    compile 'io.reactivex:rxandroid:1.2.1'
     compile 'com.aurelhubert:ahbottomnavigation:1.4.0'
-    compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
-    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta4'
-    compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
+//    compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
+//    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta4'
+//    compile files('libs/jsoup-1.6.0.jar')
+    compile 'com.github.bumptech.glide:glide:3.7.0'
 
-
-    compile files('libs/jsoup-1.6.0.jar')
-    compile 'com.google.code.gson:gson:2.2.4'
     compile 'com.android.support:design:23.3.0'
+    compile 'cn.bmob.android:bmob-sdk:3.5.0'
+    compile project(':library')
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
 }

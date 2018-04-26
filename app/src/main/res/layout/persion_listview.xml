@@ -1,160 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
+        android:layout_height="@dimen/titile_bar_size"
+        android:background="@color/tt_title_bar_color"
         android:clipToPadding="true"
-        android:background="#f50606"
-        android:layout_height="?attr/actionBarSize">
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/btn_back"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginLeft="8dp"
-            android:background="@drawable/ic_arrow_back_white_24dp"
-            android:gravity="center_vertical|left" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:text="登录"
-        android:layout_marginLeft="-24dp"
-        android:textColor="#fdfafa"
-        android:textSize="20sp"
-        android:gravity="center"
-        android:id="@+id/textView"
-        />
+            android:background="@drawable/ic_arrow_back_white_24dp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-24dp"
+            android:gravity="center"
+            android:text="登录"
+            android:textColor="#fdfafa"
+            android:textSize="@dimen/title_bar_tv_size" />
     </LinearLayout>
+
     <LinearLayout
 
-        android:layout_weight="1"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
         <TextView
-            android:layout_weight="1"
-            android:padding="5dp"
-            android:layout_marginBottom="5dp"
+            android:id="@+id/password_login"
             android:layout_width="0dp"
-            android:text="账号密码登录"
-            android:textColor="#000000"
-            android:textSize="20sp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1"
             android:gravity="center"
-            android:layout_height="match_parent" />
+            android:padding="5dp"
+            android:text="账号密码登录"
+            android:textSize="16sp" />
+
         <View
             android:layout_width="1dp"
             android:layout_height="match_parent"></View>
+
         <TextView
             android:id="@+id/phone_number"
-            android:layout_weight="1"
             android:layout_width="0dp"
-            android:padding="5dp"
+            android:layout_height="match_parent"
             android:layout_marginBottom="5dp"
-            android:background="@drawable/shap"
-            android:text="手机短信验证登录 "
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:gravity="center"
-            android:layout_height="match_parent" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_weight="2"
-        android:orientation="vertical"
-        android:layout_margin="10dp"
-        android:background="@drawable/input_bg"
-        android:layout_width="match_parent"
-        android:layout_height="0dp">
-        <EditText
-            android:id="@+id/persion_name"
-            android:paddingLeft="10dp"
-            android:hint="请输入姓名？"
-            android:drawablePadding="5dp"
-            android:background="@null"
             android:layout_weight="1"
-            android:drawableLeft="@drawable/login_icon_account"
-            android:layout_width="match_parent"
-            android:layout_height="0dp" />
-        <View
-            android:layout_width="match_parent"
-            android:background="#efeded"
-            android:layout_height="1dp"></View>
-    <EditText
-        android:id="@+id/persion_passward"
-        android:paddingLeft="10dp"
-        android:hint="请输入密码!"
-        android:password="true"
-        android:background="@null"
-        android:drawablePadding="5dp"
-        android:layout_weight="1"
-        android:drawableLeft="@drawable/login_icon_password"
-        android:layout_width="match_parent"
-        android:layout_height="0dp" />
+            android:background="@drawable/shap"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="手机短信验证登录 "
+            android:textSize="16sp" />
+
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:id="@+id/password_login_view"
         android:layout_width="match_parent"
-        android:layout_weight="1"
-        android:layout_height="0dp">
-            <Button
-                android:id="@+id/home_registered"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="5dp"
-                android:layout_width="0dp"
-               android:layout_marginTop="10dp"
-                android:layout_marginBottom="5dp"
-                android:text="注册"
-                android:textSize="20sp"
-                android:textColor="#000000"
-                android:background="@drawable/shap_go"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/input_bg"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/persion_name"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
                 android:layout_weight="1"
-                android:layout_height="match_parent" />
+                android:background="@null"
+                android:drawableLeft="@drawable/login_icon_account"
+                android:drawablePadding="5dp"
+                android:hint="请输入账号"
+                android:inputType="number"
+                android:paddingLeft="10dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#efeded"></View>
+
+            <EditText
+                android:id="@+id/persion_passward"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:drawableLeft="@drawable/login_icon_password"
+                android:drawablePadding="5dp"
+                android:hint="请输入密码"
+                android:paddingLeft="10dp"
+                android:password="true" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="点击注册即可注册成功并自动登录"
+            android:textSize="10dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/register_btn"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/register_btn"
+                android:text="注册"
+                android:textColor="@color/tt_title_bar_color"
+                android:textSize="17sp" />
+
             <Button
                 android:id="@+id/persion_go"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="30dp"
-                android:layout_width="0dp"
-                android:layout_marginTop="10dp"
-               android:layout_marginBottom="5dp"
-                android:layout_weight="1"
-                android:textSize="20sp"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 android:background="@drawable/shap_order"
-                android:textColor="#fdfbfb"
                 android:text="登录"
-                android:layout_height="match_parent" />
+                android:textColor="#fdfbfb"
+                android:textSize="17sp" />
         </LinearLayout>
-    <LinearLayout
-        android:layout_weight="5"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        android:gravity="center_horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="0dp">
 
-        <TextView
-            android:layout_marginLeft="15dp"
-            android:paddingLeft="5dp"
-            android:text="已阅读同意协议书"
-            android:textColor="#6a8af1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:paddingLeft="5dp"
-            android:checked="true"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:id="@+id/forget"
-            android:layout_marginLeft="15dp"
-            android:paddingLeft="5dp"
-            android:text="忘记密码？"
-            android:textColor="#6a8af1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="5"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:paddingLeft="5dp"
+                android:text="已阅读同意协议书"
+                android:textColor="#6a8af1" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:paddingLeft="5dp" />
+
+            <TextView
+                android:id="@+id/forget"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:paddingLeft="5dp"
+                android:text="忘记密码？"
+                android:textColor="#6a8af1" />
+        </LinearLayout>
     </LinearLayout>
+
+    <include
+        layout="@layout/custom_message"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></include>
 </LinearLayout>
